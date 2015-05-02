@@ -7,7 +7,7 @@ Prerequisites:
   * VirtualBox
 
 ### Install:
-Clone this repository: 
+Clone this repository:
 ```sh
   git clone git@github.com:fabiohbarbosa/vagrant_oracle.git
 ```
@@ -34,8 +34,8 @@ vagrant up --provision
 *In this repository has an example to create an user after oracle installation.*
 
 ### Notes:
-This virtual machine running ubuntu version ##.##
-The password of the user **system** in oracle is **manager**
+This virtual machine running Ubuntu x64 precise 64<br>
+The password of the user **system** in oracle is **manager**<br>
 After you run *vagrant up*, it's possible to access oracle in localhost:1521
 
 ##### Credits to https://github.com/hilverd/vagrant-ubuntu-oracle-xe

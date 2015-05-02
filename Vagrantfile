@@ -40,6 +40,6 @@ Vagrant.configure("2") do |config|
     puppet.options = "--verbose --trace"
   end
 
-  # Run the Maven goals for data-with-flyway
+  # Run oracle scripts
   config.vm.provision "shell", path: "oracle/scripts.sh"
 end

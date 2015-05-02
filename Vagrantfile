@@ -33,16 +33,6 @@ Vagrant.configure("2") do |config|
 
   config.vbguest.auto_update = false
 
-  $install_puppet_modules = <<SCRIPT
-  if [ -f /home/vagrant/vagrant-ubuntu-oracle-xe/oracle-jdbc/ojdbc6.jar ]; then
-    mkdir -p /etc/puppet/modules
-    puppet module list | grep -q puppetlabs-java || puppet module install puppetlabs-java
-    puppet module list | grep -q maestrodev-maven || puppet module install maestrodev-maven
-  fi
-SCRIPT
-
-  config.vm.provision "shell", inline: $install_puppet_modules
-
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
     puppet.module_path = "modules"
@@ -51,6 +41,5 @@ SCRIPT
   end
 
   # Run the Maven goals for data-with-flyway
-  config.vm.provision "shell", path: "flyway.sh"
-#  config.vm.provision "shell", path: "alterUser.sh"
+  config.vm.provision "shell", path: "oracle/scripts.sh"
 end

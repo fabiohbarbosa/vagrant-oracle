@@ -1,6 +1,5 @@
 #! /bin/bash
-sqlplus "/ as sysdba" << SCRIPT
-@create_user.sql
-commit;
+sqlplus system/manager@localhost << SCRIPT
+@/home/vagrant/vagrant-ubuntu-oracle-xe/oracle/create_user.sql
 exit;
 SCRIPT

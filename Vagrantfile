@@ -28,8 +28,8 @@ Vagrant.configure("2") do |config|
                   "--natdnshostresolver1", "on"]
   end
 
-  # This is just an example, adjust as needed
-  config.vm.provision :shell, :inline => "echo \"America/New_York\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
+  # Localtime Sao Paulo/Brazil, see anothers in /usr/share/zoneinfo
+  config.vm.provision :shell, :inline => "echo \"America/Sao_Paulo\" | sudo ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime"
 
   config.vbguest.auto_update = false
 

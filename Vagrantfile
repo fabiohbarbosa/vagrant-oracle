@@ -6,9 +6,10 @@ Vagrant.configure("2") do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.hostname = "oracle"
+  config.vm.box       = "oracle"
+  config.vm.box_url   = "http://files.vagrantup.com/precise64.box"
+  config.vm.hostname  = "oracle"
+  config.vm.network :private_network, ip: "10.0.0.1"
 
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe
   config.vm.synced_folder ".", "/home/vagrant/vagrant-ubuntu-oracle-xe", :mount_options => ["dmode=777","fmode=666"]
@@ -23,7 +24,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id,
                   "--name", "oracle",
                   # Oracle claims to need 512MB of memory available minimum
-                  "--memory", "512",
+                  "--memory", "1024",
                   # Enable DNS behind NAT
                   "--natdnshostresolver1", "on"]
   end

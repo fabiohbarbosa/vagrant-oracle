@@ -9,7 +9,6 @@ Vagrant.configure("2") do |config|
   config.vm.box       = "oracle"
   config.vm.box_url   = "http://files.vagrantup.com/precise64.box"
   config.vm.hostname  = "oracle"
-  config.vm.network :private_network, ip: "10.0.0.1"
 
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe
   config.vm.synced_folder ".", "/home/vagrant/vagrant-ubuntu-oracle-xe", :mount_options => ["dmode=777","fmode=666"]

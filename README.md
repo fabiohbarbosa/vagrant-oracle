@@ -12,7 +12,7 @@ Clone this repository:
   git clone git@github.com:fabiohbarbosa/vagrant_oracle.git
 ```
 
-Install vbguest plugin
+Install vbguest plugin:
 ```sh
 vagrant plugin install vagrant-vbguest
 ```
@@ -21,7 +21,7 @@ Download [oracle-xe-11.2.0-1.0.x86_64.rpm.zip](http://www.oracle.com/technetwork
 <br>
 And put oracle-xe-11.2.0-1.0.x86_64.rpm.zip in **./modules/oracle/files**.
 
-Run vagrant
+Run vagrant:
 ```sh
 vagrant up --provision
 ```
@@ -32,6 +32,23 @@ vagrant up --provision
 3. Add, into the tag <<SCRIPT, *@your_script.sql*
 
 *In this repository has an example to create an user after oracle installation.*
+
+### Proxy:
+If your network has proxy, follow these steps:
+
+Install the proxyconf plugin:
+```sh
+vagrant plugin install vagrant-proxyconf
+```
+
+Configure proxy in Vagrantfile:
+```vagrant
+if Vagrant.has_plugin?("vagrant-proxyconf")
+  config.proxy.http     = "http://username:password@host:port/"
+  config.proxy.https    = "http://username:password@host:port/"
+  config.proxy.no_proxy = "localhost,127.0.0.1"
+end
+```
 
 ### Notes:
 This virtual machine running Ubuntu Precise 64.<br>
